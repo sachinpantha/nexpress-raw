@@ -1,0 +1,24 @@
+{
+  "name": "100Days",
+  "version": "1.0.0",
+  "description": "",
+  "main": "request.js",
+  "scripts": {
+    "start": "node request.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sachinpantha/100Days.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sachinpantha/100Days/issues"
+  },
+  "homepage": "https://github.com/sachinpantha/100Days#readme",
+  "dependencies": {
+    "axios": "^0.26.1"
+  }
+}
