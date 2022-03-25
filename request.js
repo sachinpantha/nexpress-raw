@@ -1,27 +1,50 @@
-// const axios= require('axios');
-// axios.get('https://www.google.com').then((response)=>console.log(response)).catch((Err)=>console.log(Err));
-
-// const http=require('https');
-// const request=http.request('https://www.google.com',(res)=>{
-//     res.on('data',(chunk)=>{
-//         console.log(chunk);
-//     })
-//     res.on('end',()=>{
-//         console.log('No more data');
-//     })
-// })
-// request.end();
-
-
-//SETTING OUT FIRST SERVER
-const http=  require('http');
-const server=http.createServer((req,res)=>{
-    res.writeHead(200,{
-        'Content-type':'application/json'
-    })
-    res.end(JSON.stringify({
+const express=require('express');
+const app= express();
+const PORT=3000;
+const friends=[
+    {
+        id:0,
+        name: 'Sachin'
+    },
+    {
         id:1,
-        name:'sachin pantha',
-    }));
+        name: 'Sunil'
+    }
+];
+app.use((req,res,next)=>{
+    const start=Date.now();
+    console.log(`${req.method} ${req.url}`)
+    next();
+    const delta=Date.now()-start;
+    console.log(delta);
 })
-server.listen(5000);
+app.use(express.json());
+app.post('/friends',(req,res)=>{
+    if(!req.body.name){
+        res.status(400).json({
+            error: 'missing friend name'
+        })
+    }
+    const newFriend={
+        name: req.body.name,
+        id:friends.length,
+    }
+    friends.push(newFriend);
+    res.json(newFriend);
+})
+app.get('/friends',(req,res)=>{
+    res.json(friends);
+})
+app.get('/friends/:friendID',(req,res)=>{
+    const friendID=Number(req.params.friendID);
+    const friend=friends[friendID];
+    if (friend) {
+        res.status(200).json(friend)
+    }
+    else{
+        res.status(404).json({
+            error: "friend doesnt exsit"
+        })
+    }
+})
+app.listen(PORT);

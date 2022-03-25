@@ -2,9 +2,15 @@
   "name": "100Days",
   "version": "1.0.0",
   "description": "",
-  "main": "request.js",
+  "main": "api.js",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {},
   "scripts": {
-    "start": "node request.js",
+    "start": "nodemon request.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,8 +23,5 @@
   "bugs": {
     "url": "https://github.com/sachinpantha/100Days/issues"
   },
-  "homepage": "https://github.com/sachinpantha/100Days#readme",
-  "dependencies": {
-    "axios": "^0.26.1"
-  }
+  "homepage": "https://github.com/sachinpantha/100Days#readme"
 }
