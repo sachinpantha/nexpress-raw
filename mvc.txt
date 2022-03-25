@@ -1,0 +1,12 @@
+MVC is a software design pattern while building projects the abbrevation MVC stands for MODEL, VIEW and
+CONTROLLER
+
+
+#1 CONTROLLER 
+     The primary task of CONTROLLER is to handle the request flow of user in the server
+
+#2 MODEL
+    The primary task of MODEL is to handle the data logic and interact with databases
+
+#3 VIEW
+    The primary task  of VIEW is to dynamically render the data in frontend also known as presentation.
