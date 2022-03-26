@@ -1,6 +1,8 @@
 const express=require('express');
+const friendsController=require('./controllers/friends.controller');
+const messagesController=require('./controllers/messages.controller');
 const app= express();
-const PORT=3000;
+const PORT=3000; 
 const friends=[
     {
         id:0,
@@ -47,4 +49,6 @@ app.get('/friends/:friendID',(req,res)=>{
         })
     }
 })
+app.get('/messages',messagesController.getMessages);
+app.post('/messages',messagesController.postMessages)
 app.listen(PORT);
